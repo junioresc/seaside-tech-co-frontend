@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { EmptyState } from './EmptyState';
+import { EmptyState } from './index';
 import InboxIcon from '@mui/icons-material/Inbox';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -61,4 +61,3 @@ export const NoAppointments: Story = {
     },
   },
 };
-

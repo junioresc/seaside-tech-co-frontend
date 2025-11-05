@@ -1,8 +1,9 @@
 'use client';
 
 import { Component, ReactNode } from 'react';
-import { Box, Typography, Button, Container } from '@mui/material';
+import { Typography, Button, Container } from '@mui/material';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { ErrorWrap, IconStyles } from './styles';
 
 interface Props {
   children: ReactNode;
@@ -36,18 +37,8 @@ export class ErrorBoundary extends Component<Props, State> {
 
       return (
         <Container maxWidth="sm">
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minHeight: '50vh',
-              textAlign: 'center',
-              py: 8,
-            }}
-          >
-            <ErrorOutlineIcon sx={{ fontSize: 80, color: 'error.main', mb: 2 }} />
+          <ErrorWrap>
+            <ErrorOutlineIcon sx={{ ...IconStyles, color: 'error.main', mb: 2 }} />
             <Typography variant="h4" gutterBottom fontWeight="bold">
               Something went wrong
             </Typography>
@@ -63,7 +54,7 @@ export class ErrorBoundary extends Component<Props, State> {
             >
               Reload Page
             </Button>
-          </Box>
+          </ErrorWrap>
         </Container>
       );
     }
@@ -71,4 +62,3 @@ export class ErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 }
-

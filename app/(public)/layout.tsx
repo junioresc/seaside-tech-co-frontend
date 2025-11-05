@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Box } from '@mui/material';
-import { PublicHeader } from '@/components/layout/PublicHeader';
+import { PublicHeader } from '@/components/layout/PublicHeader/index';
 import { Footer } from '@/components/layout/Footer';
 
 interface PublicLayoutProps {

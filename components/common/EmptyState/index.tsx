@@ -1,4 +1,5 @@
-import { Box, Typography, Button } from '@mui/material';
+import { Typography, Button } from '@mui/material';
+import { EmptyStateContainer, IconWrap } from './styles';
 import { ReactNode } from 'react';
 
 interface EmptyStateProps {
@@ -13,21 +14,8 @@ interface EmptyStateProps {
 
 export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        py: 8,
-        textAlign: 'center',
-      }}
-    >
-      {icon && (
-        <Box sx={{ color: 'text.secondary', mb: 2 }}>
-          {icon}
-        </Box>
-      )}
+    <EmptyStateContainer>
+      {icon && <IconWrap>{icon}</IconWrap>}
       <Typography variant="h6" gutterBottom fontWeight="600">
         {title}
       </Typography>
@@ -41,7 +29,6 @@ export function EmptyState({ icon, title, description, action }: EmptyStateProps
           {action.label}
         </Button>
       )}
-    </Box>
+    </EmptyStateContainer>
   );
 }
-

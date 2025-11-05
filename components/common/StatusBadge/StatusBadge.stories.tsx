@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { StatusBadge } from './StatusBadge';
+import { StatusBadge } from './index';
 
 const meta: Meta<typeof StatusBadge> = {
   title: 'Components/StatusBadge',
@@ -102,4 +102,3 @@ export const InProgress: Story = {
     status: 'in_progress',
   },
 };
-

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { productsApi } from '@/lib/api/endpoints/products';
 import { formatCurrency } from '@/lib/utils/format';
 import type { Product } from '@/types';
-import { AddToCartButton } from '@/components/cart/AddToCartButton';
+import { AddToCartButton } from '@/components/cart/AddToCartButton/index';
 
 export const revalidate = 3600; // Revalidate every hour (ISR)
 

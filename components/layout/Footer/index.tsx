@@ -1,36 +1,28 @@
 'use client';
 
-import { Box, Container, Typography, Grid, Link as MuiLink } from '@mui/material';
 import Link from 'next/link';
+import { Typography, Grid, Link as MuiLink } from '@mui/material';
+import { FooterContainer, FooterInner, FooterSection, FooterBottom, LinksColumn } from './styles';
 
 export function Footer() {
   return (
-    <Box
-      component="footer"
-      sx={{
-        bgcolor: 'background.paper',
-        borderTop: 1,
-        borderColor: 'divider',
-        py: 6,
-        mt: 'auto',
-      }}
-    >
-      <Container maxWidth="lg">
+    <FooterContainer component="footer">
+      <FooterInner maxWidth="lg">
         <Grid container spacing={4}>
-          <Grid item xs={12} sm={4}>
+          <FooterSection item xs={12} sm={4}>
             <Typography variant="h6" gutterBottom fontWeight="bold">
               Seaside Tech Co
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Professional device repair and technical services
             </Typography>
-          </Grid>
+          </FooterSection>
 
-          <Grid item xs={12} sm={4}>
+          <FooterSection item xs={12} sm={4}>
             <Typography variant="h6" gutterBottom fontWeight="600">
               Services
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <LinksColumn>
               <MuiLink component={Link} href="/book" color="text.secondary" underline="hover">
                 Book Appointment
               </MuiLink>
@@ -45,10 +37,10 @@ export function Footer() {
               >
                 Track Repair
               </MuiLink>
-            </Box>
-          </Grid>
+            </LinksColumn>
+          </FooterSection>
 
-          <Grid item xs={12} sm={4}>
+          <FooterSection item xs={12} sm={4}>
             <Typography variant="h6" gutterBottom fontWeight="600">
               Contact
             </Typography>
@@ -58,16 +50,15 @@ export function Footer() {
             <Typography variant="body2" color="text.secondary">
               Phone: (555) 123-4567
             </Typography>
-          </Grid>
+          </FooterSection>
         </Grid>
 
-        <Box sx={{ mt: 4, pt: 4, borderTop: 1, borderColor: 'divider', textAlign: 'center' }}>
+        <FooterBottom>
           <Typography variant="body2" color="text.secondary">
             © {new Date().getFullYear()} Seaside Tech Co. All rights reserved.
           </Typography>
-        </Box>
-      </Container>
-    </Box>
+        </FooterBottom>
+      </FooterInner>
+    </FooterContainer>
   );
 }
-

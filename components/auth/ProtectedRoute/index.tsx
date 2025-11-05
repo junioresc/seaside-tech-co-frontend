@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import { ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Box, CircularProgress } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import { useCurrentUser } from '@/providers/AuthBootstrap';
+import { LoadingWrap } from './styles';
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -24,16 +25,9 @@ export function ProtectedRoute({ children, requiredRole }: ProtectedRouteProps) 
 
   if (isLoading) {
     return (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '100vh',
-        }}
-      >
+      <LoadingWrap>
         <CircularProgress />
-      </Box>
+      </LoadingWrap>
     );
   }
 
@@ -47,4 +41,3 @@ export function ProtectedRoute({ children, requiredRole }: ProtectedRouteProps) 
 
   return <>{children}</>;
 }
-

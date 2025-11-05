@@ -1,4 +1,5 @@
 import { Box, Skeleton, Card, CardContent, Grid } from '@mui/material';
+import { TableSkeletonRow, ListItemRow, ListItemText } from './styles';
 
 export function CardSkeleton() {
   return (
@@ -18,7 +19,9 @@ export function TableSkeleton({ rows = 5 }: { rows?: number }) {
   return (
     <Box>
       {Array.from({ length: rows }).map((_, i) => (
-        <Skeleton key={i} variant="rectangular" height={60} sx={{ mb: 1 }} />
+        <TableSkeletonRow key={i}>
+          <Skeleton variant="rectangular" height={60} />
+        </TableSkeletonRow>
       ))}
     </Box>
   );
@@ -28,13 +31,13 @@ export function ListSkeleton({ items = 5 }: { items?: number }) {
   return (
     <Box>
       {Array.from({ length: items }).map((_, i) => (
-        <Box key={i} sx={{ display: 'flex', gap: 2, mb: 2 }}>
+        <ListItemRow key={i}>
           <Skeleton variant="circular" width={40} height={40} />
-          <Box sx={{ flex: 1 }}>
+          <ListItemText>
             <Skeleton variant="text" width="40%" />
             <Skeleton variant="text" width="80%" />
-          </Box>
-        </Box>
+          </ListItemText>
+        </ListItemRow>
       ))}
     </Box>
   );
@@ -51,4 +54,3 @@ export function ProductGridSkeleton({ count = 6 }: { count?: number }) {
     </Grid>
   );
 }
-
